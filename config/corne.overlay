@@ -1,12 +1,20 @@
 / {
-    leds: ws2812 {
-        compatible = "worldsemi,ws2812";
-        chain-length = <78>;
-        gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
+    chosen {
+        zmk,rgb-underglow = &underglow;
+        zmk,rgb-keyboard = &perkey_rgb;
     };
 
-    chosen {
-        zmk,rgb-keyboard = &leds;
-        zmk,rgb-underglow = &leds;
+    perkey_rgb: leds {
+        compatible = "worldsemi,ws2812";
+        gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;  // <-- À CONFIRMER SELON PCB
+        chain-length = <65>;
+        color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
+    };
+
+    underglow: leds {
+        compatible = "worldsemi,ws2812";
+        gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;  // <-- À CONFIRMER
+        chain-length = <13>;
+        color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
     };
 };
