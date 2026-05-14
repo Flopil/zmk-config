@@ -4,11 +4,16 @@
         zmk,rgb-keyboard = &led_strip;
     };
 
-    led_strip: leds {
-        compatible = "worldsemi,ws2812";
-        label = "SK6812";
-        gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;  // <-- ESSAYE 21 en premier
-        chain-length = <78>; // 65 + 13 si tout est chaîné
-        color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
+    led_strip: led_strip {
+        compatible = "worldsemi,ws2812-spi";
+
+        reg = <0>;
+        spi-max-frequency = <4000000>;
+
+        chain-length = <78>;
+
+        spi-gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
+
+        color-mapping = <0 1 2>;
     };
 };
