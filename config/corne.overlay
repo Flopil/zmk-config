@@ -1,9 +1,4 @@
-/ {
-    chosen {
-        zmk,rgb-underglow = &underglow;
-        zmk,rgb-keyboard = &perkey_rgb;
-    };
-};
+/
 
 &spi3 {
     compatible = "nordic,nrf-spim";
