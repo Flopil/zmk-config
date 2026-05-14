@@ -1,18 +1,4 @@
 / {
-    perkey_rgb: rgb_leds {
-        compatible = "ws2812-leds";
-        chain-length = <65>;
-        gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
-        default-brightness = <50>;
-    };
-
-    underglow: rgb_underglow {
-        compatible = "ws2812-leds";
-        chain-length = <13>;
-        gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
-        default-brightness = <50>;
-    };
-
     chosen {
         zmk,rgb-underglow = &underglow;
         zmk,rgb-keyboard = &perkey_rgb;
