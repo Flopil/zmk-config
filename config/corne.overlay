@@ -1,6 +1,12 @@
 / {
+    leds: ws2812 {
+        compatible = "worldsemi,ws2812";
+        chain-length = <78>;
+        gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
+    };
+
     chosen {
-        zmk,rgb-underglow = &underglow;
-        zmk,rgb-keyboard = &perkey_rgb;
+        zmk,rgb-keyboard = &leds;
+        zmk,rgb-underglow = &leds;
     };
 };
