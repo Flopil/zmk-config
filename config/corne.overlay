@@ -1,20 +1,14 @@
 / {
     chosen {
-        zmk,rgb-underglow = &underglow;
-        zmk,rgb-keyboard = &perkey_rgb;
+        zmk,rgb-underglow = &led_strip;
+        zmk,rgb-keyboard = &led_strip;
     };
 
-    perkey_rgb: leds {
+    led_strip: leds {
         compatible = "worldsemi,ws2812";
-        gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;  // <-- À CONFIRMER SELON PCB
-        chain-length = <65>;
-        color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
-    };
-
-    underglow: leds {
-        compatible = "worldsemi,ws2812";
-        gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;  // <-- À CONFIRMER
-        chain-length = <13>;
+        label = "SK6812";
+        gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;  // <-- ESSAYE 21 en premier
+        chain-length = <78>; // 65 + 13 si tout est chaîné
         color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
     };
 };
