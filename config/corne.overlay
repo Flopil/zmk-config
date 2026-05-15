@@ -17,7 +17,7 @@
     status = "okay";
 
     sck-pin = <23>;
-    mosi-pin = <21>;
+    mosi-pin = <19>;
 
     underglow: ws2812@0 {
         compatible = "worldsemi,ws2812-spi";
