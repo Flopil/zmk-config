@@ -1,19 +1,12 @@
 / {
     chosen {
-        zmk,rgb-underglow = &led_strip;
+        zmk,rgb-underglow = &myleds;
     };
 
-    led_strip: ws2812 {
+    myleds: leds {
         compatible = "worldsemi,ws2812-spi";
-
-        label = "WS2812";
-
-        /* SPI correct sur nice_nano (souvent spi1 ou spi3 selon board) */
-        spi-max-frequency = <4000000>;
-
+        spi-dev = <&spi3>;
         chain-length = <78>;
-
-        /* GPIO SPI controller */
-        gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
+        color-mapping = <1 0 2>;
     };
 };
