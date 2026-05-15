@@ -1,13 +1,6 @@
-/ {
-    chosen {
-        zmk,rgb-underglow = &led_strip;
-    };
+Remplace entièrement corne.overlay par :
 
-    led_strip: led_strip {
-        compatible = "worldsemi,ws2812-gpio";
-
-        gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
-
-        chain-length = <27>;
-    };
+&led_strip {
+    chain-length = <27>;
+    status = "okay";
 };
