@@ -1,21 +1,3 @@
-/ {
-    chosen {
-        zmk,rgb-underglow = &led_strip;
-    };
-};
-
-led_strip: ws2812 {
-    compatible = "worldsemi,ws2812";
-    label = "WS2812";
-
-    /* IMPORTANT: remplace 21 par TON pin data réel */
-    gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
-
-    chain-length = <78>;
-
-    color-mapping = <
-        LED_COLOR_ID_GREEN
-        LED_COLOR_ID_RED
-        LED_COLOR_ID_BLUE
-    >;
+&led_strip {
+    chain-length = <27>;
 };
