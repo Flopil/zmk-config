@@ -1,46 +1,30 @@
-#include <dt-bindings/zmk/matrix_transform.h>
-#include <dt-bindings/led/led.h>
-
-/* Nice!View sur le bus SPI */
-&nice_view_spi {
-    status = "okay";
-};
-
-/* LEDs RGB WS2812 */
-&pinctrl {
-    spi3_default: spi3_default {
-        group1 {
-            psels = <NRF_PSEL(SPIM_MOSI, 0, 6)>; /* Pin P0.06 — ajuste selon ton PCB */
-        };
-    };
-    spi3_sleep: spi3_sleep {
-        group1 {
-            psels = <NRF_PSEL(SPIM_MOSI, 0, 6)>;
-            low-power-enable;
-        };
-    };
-};
-
-&spi3 {
-    compatible = "nordic,nrf-spim";
-    status = "okay";
-    pinctrl-0 = <&spi3_default>;
-    pinctrl-1 = <&spi3_sleep>;
-    pinctrl-names = "default", "sleep";
-
-    led_strip: ws2812@0 {
-        compatible = "worldsemi,ws2812-spi";
-        reg = <0>;
-        spi-max-frequency = <4000000>;
-        chain-length = <12>; /* 6 LEDs par côté, ajuste si différent */
-        spi-one-frame = <0x70>;
-        spi-zero-frame = <0x40>;
-        color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
-    };
-};
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/outputs.h>
 
 / {
     chosen {
         zmk,underglow = &led_strip;
     };
+};
+
+// Configuration de la bande LED
+&led_strip {
+    status = "okay";
+    chain-length = <27>;  // À ajuster selon le nombre total de LEDs par moitié
+    
+    // Broche de contrôle des LEDs (généralement D0/006)
+    // Si ça ne fonctionne pas, essayez de décommenter la ligne ci-dessous
+    // cs-gpios = <&pro_micro 6 GPIO_ACTIVE_HIGH>;
+};
+
+// Désactiver complètement l'écran Nice!View s'il est détecté
+&nice_view {
+    status = "disabled";
+};
+
+&nice_view_spi {
+    status = "disabled";
 };
