@@ -1,3 +1,36 @@
-&led_strip {
-    chain-length = <27>;
+/ {
+    chosen {
+        zmk,rgb-underglow = &underglow;
+    };
+};
+
+&gpio0 {
+    led_power: led_power {
+        gpio-hog;
+        gpios = <31 GPIO_ACTIVE_HIGH>;
+        output-high;
+    };
+};
+
+&spi3 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+
+    sck-pin = <23>;
+    mosi-pin = <21>;
+
+    underglow: ws2812@0 {
+        compatible = "worldsemi,ws2812-spi";
+
+        reg = <0>;
+        spi-max-frequency = <4000000>;
+
+        chain-length = <78>;
+
+        color-mapping = <
+            LED_COLOR_ID_GREEN
+            LED_COLOR_ID_RED
+            LED_COLOR_ID_BLUE
+        >;
+    };
 };
