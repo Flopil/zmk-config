@@ -11,9 +11,7 @@
 
         chain-length = <78>;
 
-        color-mapping = <LED_COLOR_ID_GREEN
-                         LED_COLOR_ID_RED
-                         LED_COLOR_ID_BLUE>;
+        color-mapping = <1 0 2>;
     };
 };
 
