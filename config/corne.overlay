@@ -1,0 +1,14 @@
+/ {
+	chosen {
+		zmk,underglow = &underglow;
+	};
+};
+
+&ws2812 {
+	gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
+	chain-length = <12>;
+};
+
+&nice_view_spi {
+	status = "okay";
+};
