@@ -11,7 +11,7 @@ nice_view_spi: &spi2 {
 */
 
 /* --- NICE!VIEW (SPI CS override propre) --- */
-&spi2 {
+&spi1 {
     status = "okay";
     cs-gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
 };
