@@ -15,8 +15,3 @@ nice_view_spi: &spi2 {
     status = "okay";
     cs-gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
 };
-
-/* --- DISPLAY NICE!VIEW --- */
-&nice_view {
-    status = "okay";
-};
