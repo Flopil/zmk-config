@@ -1,14 +1,21 @@
 / {
-	chosen {
-		zmk,underglow = &underglow;
-	};
-};
+    chosen {
+        zmk,underglow = &underglow;
+    };
 
-&ws2812 {
-	gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
-	chain-length = <12>;
+    underglow: underglow {
+        compatible = "zmk,rgb-underglow";
+
+        chain-length = <12>;
+
+        color-mapping = <LED_COLOR_ID_GREEN
+                         LED_COLOR_ID_RED
+                         LED_COLOR_ID_BLUE>;
+
+        out-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
+    };
 };
 
 &nice_view_spi {
-	status = "okay";
+    status = "okay";
 };
