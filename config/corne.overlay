@@ -1,3 +1,4 @@
-&nice_view {
-    cs-gpios = <&gpio0 16 GPIO_ACTIVE_LOW>;
+&spi1 {
+    cs-gpios = <&gpio0 16 GPIO_ACTIVE_LOW>,
+                <&gpio0 16 GPIO_ACTIVE_LOW>;
 };
