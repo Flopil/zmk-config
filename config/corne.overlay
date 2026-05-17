@@ -1,10 +1,4 @@
 
-
-nice_view_spi: &nice_view_spi {
-    status = "okay";
-    compatible = "nordic,nrf-spim";
-    pinctrl-0 = <&spi2_default>;
-    pinctrl-1 = <&spi2_sleep>;
-    pinctrl-names = "default", "sleep";
+&nice_view_spi {
     cs-gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
 };
