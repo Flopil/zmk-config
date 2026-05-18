@@ -1,4 +1,4 @@
 
-&nice_view {
+&spi0 {
     cs-gpios = <&gpio0 22 GPIO_ACTIVE_LOW>;
 };
