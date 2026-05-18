@@ -1,4 +1,4 @@
 
 &spi0 {
-    cs-gpios = <&gpio0 22 GPIO_ACTIVE_LOW>;
+    cs-gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;
 };
