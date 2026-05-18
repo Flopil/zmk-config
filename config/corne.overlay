@@ -1,4 +1,4 @@
-&spi0 {
+&ls0xx {
 	nice_view: nice_view@0 {
     cs-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
 	};
