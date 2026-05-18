@@ -1,9 +1,5 @@
-/ {
-    chosen {
-        zmk,display = &nice_view_spi;
-    };
-};
-
-&nice_view_spi {
+&spi0 {
+	nice_view: nice_view@0 {
     cs-gpios = <&gpio0 22 GPIO_ACTIVE_LOW>;
+	};
 };
