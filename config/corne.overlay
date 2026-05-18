@@ -1,3 +1,9 @@
-&{/soc/spi@40003000/ls0xx@0} {
+/ {
+    chosen {
+        zmk,display = &nice_view_spi;
+    };
+};
+
+&nice_view_spi {
     cs-gpios = <&gpio0 22 GPIO_ACTIVE_LOW>;
 };
